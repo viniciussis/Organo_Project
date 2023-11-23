@@ -1,13 +1,17 @@
+@font-face {
+  font-family: 'Prata', serif;
+  src: url('../public/fonts/Prata/Prata-Regular.ttf') format('truetype');
+  font-family: 'Montserrat';
+  src: url('../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Montserrat', Courier, monospace;
 }
