@@ -1,0 +1,18 @@
+.team {
+  text-align: center;
+  padding: 32px;
+}
+
+.team .members {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.team h3{
+  font-family: 'Prata', sans-serif;
+  font-size: 36px;
+  border-bottom: 4px solid;
+  padding-bottom: 4px;
+  display: inline-block;
+}

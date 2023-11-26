@@ -10,6 +10,7 @@ const Dropdown = (props) => {
     <div className='dropdown'>
       <label htmlFor={props.label} >{props.label}</label>
       <select value={props.value} id={props.label} required={props.mandatory} onChange={changing}>
+        <option disabled style={{display:'none'}} ></option>
         {props.itens.map(item => <option key={item}>{item}</option>)}
       </select>
     </div>

@@ -6,7 +6,6 @@ import { useState } from 'react'
 
 const Form = (props) => {
 
-  const teams = ['Team A', 'Team B', 'Team C', 'Team D', 'Team E', 'Team F']
   const [name, setName] = useState('')
   const [role, setRole] = useState('')
   const [img, setImg] = useState('')
@@ -15,6 +14,10 @@ const Form = (props) => {
   const submitting = (event) => {
     event.preventDefault()
     props.onSubmitting({name, role, img, team})
+    setImg('')
+    setName('')
+    setRole('')
+    setTeam('')
   }
 
   return (
@@ -28,7 +31,7 @@ const Form = (props) => {
         <TextField value={img} label='Imagem' onChange={img => setImg(img)}
           placeholder='Informe o endereço da imagem...'/>
         <Dropdown value={team} mandatory={true} onChange={team => setTeam(team)} 
-          label='Time' itens={teams}/>
+          label='Time' itens={props.teams}/>
         <Button>
           Criar card
         </Button>
