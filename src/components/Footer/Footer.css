@@ -5,7 +5,10 @@
   justify-content: space-around;
   align-items: center;
   height: 100px;
-  margin-top: 48px;
+  margin-top: 56px;
+  background-image: url('/public/images/fundo.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .footer h5 {

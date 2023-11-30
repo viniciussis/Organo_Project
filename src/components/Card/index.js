@@ -4,12 +4,16 @@ import { AiFillCloseCircle } from "react-icons/ai";
 const Card = (props) => {
   return (
     <div className='card'>
-      <AiFillCloseCircle size={25} className='delete' onClick={props.onDelete}/>
-      <div className='upSide' style={{backgroundColor: props.primaryColor}}>
+      <AiFillCloseCircle 
+        size={30} 
+        className='delete' 
+        onClick={() => props.onDelete(props.id)}
+      />
+      <div className='upSide' style={{backgroundColor: props.color}}>
         <img src={props.img} alt={props.name}/>
       </div>
       <div className='downSide'>
-        <h4 style={{color: props.primaryColor}}>{props.name}</h4>
+        <h4 style={{color: props.color}}>{props.name}</h4>
         <h5>{props.role}</h5>
       </div>
     </div>

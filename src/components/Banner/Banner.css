@@ -1,6 +1,10 @@
 .banner {
   background-color: #6278f7;
   text-align: center;
+  background-image: url('/public/images/fundo.png');
+  background-size: cover;
+  background-position: center;
+
 }
 
 .banner img {

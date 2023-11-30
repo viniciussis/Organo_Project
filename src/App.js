@@ -3,56 +3,70 @@ import Banner from './components/Banner'
 import Form from './components/Form'
 import Team from './components/Team'
 import Footer from './components/Footer'
+import Title from './components/Title'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
 
-  const teams = [
+  const [teams, setTeams] = useState([
     {
+      id: uuidv4(),
       name:'Team A',
-      primaryColor: '#57C278',
-      secondaryColor: '#D9F7E9'
+      color: '#57C278'
     },
     {
+      id: uuidv4(),
       name:'Team B',
-      primaryColor: '#82CFFA',
-      secondaryColor: '#E8F8FF'
+      color: '#82CFFA'
     },
     {
+      id: uuidv4(),
       name:'Team C',
-      primaryColor: '#A6D157',
-      secondaryColor: '#F0F8E2'
+      color: '#A6D157'
     },
     {
+      id: uuidv4(),
       name:'Team D',
-      primaryColor: '#E06B69',
-      secondaryColor: '#FDE7E8'
+      color: '#E06B69'
     },
     {
+      id: uuidv4(),
       name:'Team E',
-      primaryColor: '#DB6EBF',
-      secondaryColor:'#FAE9F5'
+      color: '#DB6EBF'
     },
     {
+      id: uuidv4(),
       name:'Team F',
-      primaryColor: '#FFBA05',
-      secondaryColor: '#FFF5D9'
+      color: '#FFBA05'
     },
     {
+      id: uuidv4(),
       name:'Team G',
-      primaryColor: '#FF8A29',
-      secondaryColor:'#FFEEDF'
+      color: '#FF8A29'
     }
-  ]
+  ])
   
   const [members, setMember] = useState([])
 
   const submittingMember = (member) => {
+    member = {...member, id:uuidv4()}
     console.log(member)
     setMember([...members, member])
   }
 
-  function deletingMember() {
-    console.log('deleting member')
+  function changingColor(color, key) {
+    setTeams(teams.map(team => {
+      if (team.key === key) {
+        team.color = color
+      }
+      return team
+    }))
+  }
+
+  function deletingMember(id) {
+    setMember(
+      members.filter(member => member.id !== id)
+    )
   }
 
   return (
@@ -62,13 +76,14 @@ function App() {
         teams={teams.map(team => team.name)} 
         onSubmitting={member => submittingMember(member)}
       />
+      <Title/>
       {teams.map(team => 
         <Team 
+          onChanging={changingColor}
           members={members.filter(member => member.team === team.name)} 
-          key={team.name} 
+          key={team.id}
           name={team.name} 
-          primaryColor={team.primaryColor} 
-          secondaryColor={team.secondaryColor}
+          color={team.color} 
           onDeleting={deletingMember}
         />
       )}

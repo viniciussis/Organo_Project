@@ -1,9 +1,4 @@
-@font-face {
-  font-family: 'Prata', serif;
-  src: url('../public/fonts/Prata/Prata-Regular.ttf') format('truetype');
-  font-family: 'Montserrat';
-  src: url('../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Prata&display=swap');
 
 body {
   margin: 0;
@@ -13,5 +8,5 @@ body {
 }
 
 code {
-  font-family: 'Montserrat', Courier, monospace;
+  font-family: Courier, monospace;
 }

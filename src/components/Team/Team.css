@@ -4,6 +4,13 @@
   background-image: url('/public/images/fundo.png');
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+
+.team input {
+  position: absolute;
+  right: 50px;
+  top: 50px;
 }
 
 .team .members {

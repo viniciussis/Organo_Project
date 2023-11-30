@@ -1,20 +1,22 @@
 import './Team.css'
 import Card from '../Card'
+import hexToRgba from 'hex-to-rgba'
 
 const Team = (props) => {
-  return (
+  return (    
     (props.members.length > 0) &&
-    <section className='team' style={{backgroundColor: props.secondaryColor}}>
-      <h3 style={{borderColor: props.primaryColor}}>{props.name}</h3>
+    <section className='team' style={{backgroundColor: hexToRgba(props.color, 0.5)}}>
+      <input type="color" value={props.color} onChange={event => props.onChanging(event.target.value, props.key)}/>
+      <h3 style={{borderColor: props.color}}>{props.name}</h3>
       <div className='members'>
         {props.members.map(member => 
           <Card 
-            key={member.name} 
             onDelete={props.onDeleting} 
+            id={member.key} 
             name={member.name} 
             role={member.role} 
             img={member.img} 
-            primaryColor={props.primaryColor}
+            color={props.color}
           />
         )}
       </div>
