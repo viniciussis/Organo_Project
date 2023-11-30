@@ -41,7 +41,7 @@ function App() {
     },
     {
       id: uuidv4(),
-      name:'Team G',
+      name: 'Team G',
       color: '#FF8A29'
     }
   ])
@@ -50,13 +50,12 @@ function App() {
 
   const submittingMember = (member) => {
     member = {...member, id:uuidv4()}
-    console.log(member)
     setMember([...members, member])
   }
 
-  function changingColor(color, key) {
+  function changingColor(color, id) {
     setTeams(teams.map(team => {
-      if (team.key === key) {
+      if (team.id === id) {
         team.color = color
       }
       return team
@@ -82,6 +81,7 @@ function App() {
           onChanging={changingColor}
           members={members.filter(member => member.team === team.name)} 
           key={team.id}
+          id={team.id}
           name={team.name} 
           color={team.color} 
           onDeleting={deletingMember}

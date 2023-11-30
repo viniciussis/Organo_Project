@@ -7,7 +7,7 @@ const Card = (props) => {
       <AiFillCloseCircle 
         size={30} 
         className='delete' 
-        onClick={() => props.onDelete(props.id)}
+        onClick={() => props.onDeleting(props.id)}
       />
       <div className='upSide' style={{backgroundColor: props.color}}>
         <img src={props.img} alt={props.name}/>
