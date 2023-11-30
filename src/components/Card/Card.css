@@ -1,5 +1,12 @@
 .card {
   width: 280px;
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  right: -10px;
+  top: -10px;
 }
 
 .upSide {

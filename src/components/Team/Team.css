@@ -1,6 +1,9 @@
 .team {
   text-align: center;
   padding: 32px;
+  background-image: url('/public/images/fundo.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .team .members {

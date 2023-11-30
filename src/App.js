@@ -51,11 +51,27 @@ function App() {
     setMember([...members, member])
   }
 
+  function deletingMember() {
+    console.log('deleting member')
+  }
+
   return (
     <div className="App">
       <Banner/>
-      <Form teams={teams.map(team => team.name)} onSubmitting={member => submittingMember(member)}/>
-      {teams.map(team => <Team members={members.filter(member => member.team === team.name)} key={team.name} name={team.name} primaryColor={team.primaryColor} secondaryColor={team.secondaryColor}/>)}
+      <Form 
+        teams={teams.map(team => team.name)} 
+        onSubmitting={member => submittingMember(member)}
+      />
+      {teams.map(team => 
+        <Team 
+          members={members.filter(member => member.team === team.name)} 
+          key={team.name} 
+          name={team.name} 
+          primaryColor={team.primaryColor} 
+          secondaryColor={team.secondaryColor}
+          onDeleting={deletingMember}
+        />
+      )}
       <Footer/>
     </div>
   )

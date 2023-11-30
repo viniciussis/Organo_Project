@@ -15,8 +15,8 @@ const Footer = () => {
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/_viniciussis" rel="noreferrer" target='_blank'>
-          <img src="../images/tw.png" alt="twitter" />
+          <a href="https://github.com/viniciussis" rel="noreferrer" target='_blank'>
+          <img src="../images/tw.png" alt="github" />
           </a>
         </li>
       </ul>
