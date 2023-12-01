@@ -8,49 +8,17 @@ import { v4 as uuidv4 } from 'uuid'
 
 function App() {
 
-  const [teams, setTeams] = useState([
-    {
-      id: uuidv4(),
-      name:'Team A',
-      color: '#57C278'
-    },
-    {
-      id: uuidv4(),
-      name:'Team B',
-      color: '#82CFFA'
-    },
-    {
-      id: uuidv4(),
-      name:'Team C',
-      color: '#A6D157'
-    },
-    {
-      id: uuidv4(),
-      name:'Team D',
-      color: '#E06B69'
-    },
-    {
-      id: uuidv4(),
-      name:'Team E',
-      color: '#DB6EBF'
-    },
-    {
-      id: uuidv4(),
-      name:'Team F',
-      color: '#FFBA05'
-    },
-    {
-      id: uuidv4(),
-      name: 'Team G',
-      color: '#FF8A29'
-    }
-  ])
-  
+  const [teams, setTeams] = useState([])
   const [members, setMember] = useState([])
 
   const submittingMember = (member) => {
     member = {...member, id:uuidv4()}
     setMember([...members, member])
+  }
+
+  const submittingTeam = (newTeam) => {
+    newTeam = {...newTeam, id:uuidv4()}
+    setTeams([...teams, newTeam])
   }
 
   function changingColor(color, id) {
@@ -68,12 +36,17 @@ function App() {
     )
   }
 
+  function favoriteMember(id) {
+    
+  }
+
   return (
     <div className="App">
       <Banner/>
       <Form 
         teams={teams.map(team => team.name)} 
-        onSubmitting={member => submittingMember(member)}
+        onSubmittingCard={member => submittingMember(member)}
+        onSubmittingTeam={newTeam => submittingTeam(newTeam)}
       />
       <Title/>
       {teams.map(team => 

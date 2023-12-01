@@ -12,6 +12,7 @@ const Team = (props) => {
         {props.members.map(member => 
           <Card 
             onDeleting={props.onDeleting} 
+            onFavorite={props.onFavorite}
             key={member.id}
             id={member.id}
             name={member.name} 

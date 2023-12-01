@@ -9,6 +9,21 @@
   top: -10px;
 }
 
+.delete:hover {
+  color: white;
+}
+
+.favorite {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: black;
+}
+
+.favorite:hover {
+  color: red;
+}
+
 .upSide {
   border-radius: 10px 10px 0px 0px;
 }
