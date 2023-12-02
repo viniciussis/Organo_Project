@@ -12,7 +12,7 @@ function App() {
   const [members, setMember] = useState([])
 
   const submittingMember = (member) => {
-    member = {...member, id:uuidv4()}
+    member = {...member, id:uuidv4(), favorite: false}
     setMember([...members, member])
   }
 
@@ -36,6 +36,16 @@ function App() {
     )
   }
 
+  function favoriteMember(id) {
+    setMember(
+      members.map(member => {
+        if(member.id === id)
+          member.favorite = !member.favorite;
+          return member      
+      })
+    )
+  }
+
   return (
     <div className="App">
       <Banner/>
@@ -47,12 +57,14 @@ function App() {
       <Title/>
       {teams.map(team => 
         <Team 
+          key={team.id}
           onChanging={changingColor}
           members={members.filter(member => member.team === team.name)}
           id={team.id}
           name={team.name} 
           color={team.color} 
           onDeleting={deletingMember}
+          onFavorite={favoriteMember}
         />
       )}
       <Footer/>

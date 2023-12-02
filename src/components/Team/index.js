@@ -11,6 +11,7 @@ const Team = ({ onChanging, members, id, name, color, onDeleting, onFavorite }) 
       <div className='members'>
         {members.map(member => 
           <Card 
+            member={member}
             key={member.id}
             onDeleting={onDeleting} 
             onFavorite={onFavorite}

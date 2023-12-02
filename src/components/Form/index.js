@@ -11,7 +11,7 @@ const Form = ({onSubmittingCard, onSubmittingTeam, teams}) => {
   const [img, setImg] = useState('')
   const [team, setTeam] = useState('')
   const [teamName, setTeamName] = useState('')
-  const [teamColor, setTeamColor] = useState('')
+  const [teamColor, setTeamColor] = useState('#FFFFFF')
 
   const submittingCard = (event) => {
     event.preventDefault()

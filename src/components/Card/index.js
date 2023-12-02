@@ -1,7 +1,7 @@
 import './Card.css';
-import { AiFillCloseCircle, AiFillHeart   } from "react-icons/ai";
+import { AiFillCloseCircle, AiFillHeart } from "react-icons/ai";
 
-const Card = ({ onDeleting, onFavorite, id, name, role, img, color }) => {
+const Card = ({ onDeleting, member, id, onFavorite, name, role, img, color }) => {
   return (
     <div className='card'>
       <AiFillCloseCircle 
@@ -15,10 +15,18 @@ const Card = ({ onDeleting, onFavorite, id, name, role, img, color }) => {
       <div className='downSide'>
         <h4 style={{color: color}}>{name}</h4>
         <h5>{role}</h5>
-        <AiFillHeart 
-          className='favorite' 
-          size={30}
-          onClick={() => onFavorite(id)}/>
+        {member.favorite 
+          ? <AiFillHeart
+            className='favorite'
+            size={30}
+            onClick={() => onFavorite(id)}
+            style={{color: 'red'}}/> 
+          : <AiFillHeart
+            className='favorite'
+            size={30}
+            onClick={() => onFavorite(id)}
+            style={{color: 'black'}}/>
+        }
       </div>
     </div>
   )
