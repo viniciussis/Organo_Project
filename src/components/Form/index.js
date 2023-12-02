@@ -1,11 +1,10 @@
-import TextField from '../TextField'
+import Field from '../Field'
 import Dropdown from '../Dropdown'
 import Button from '../Button'
-import Color from '../Color'
 import './Form.css'
 import { useState } from 'react'
 
-const Form = (props) => {
+const Form = ({onSubmittingCard, onSubmittingTeam, teams}) => {
 
   const [name, setName] = useState('')
   const [role, setRole] = useState('')
@@ -16,7 +15,7 @@ const Form = (props) => {
 
   const submittingCard = (event) => {
     event.preventDefault()
-    props.onSubmittingCard({name, role, img, team})
+    onSubmittingCard({name, role, img, team})
     setImg('')
     setName('')
     setRole('')
@@ -25,7 +24,7 @@ const Form = (props) => {
 
   const submittingTeam = (event) => {
     event.preventDefault()
-    props.onSubmittingTeam({name: teamName, color: teamColor})
+    onSubmittingTeam({name: teamName, color: teamColor})
     setTeamName('')
   }
 
@@ -33,21 +32,21 @@ const Form = (props) => {
     <div className='forms'>      
       <form onSubmit = {submittingCard} >
         <h2>Preencha os dados para criar o card...</h2>
-        <TextField value={name} mandatory label='Nome' onChange={name => setName(name)}
+        <Field type='text' value={name} mandatory label='Nome' onChange={name => setName(name)}
           placeholder='Digite seu nome...'/>
-        <TextField value={role} mandatory label='Cargo' onChange={role => setRole(role)} 
+        <Field type='text' value={role} mandatory label='Cargo' onChange={role => setRole(role)} 
           placeholder='Digite seu cargo...'/>
-        <TextField value={img} label='Imagem' onChange={img => setImg(img)}
+        <Field type='text' value={img} label='Imagem' onChange={img => setImg(img)}
           placeholder='Informe o endereço da imagem...'/>
         <Dropdown value={team} mandatory onChange={team => setTeam(team)} 
-          label='Time' itens={props.teams}/>
+          label='Time' itens={teams}/>
         <Button>Criar card</Button>
       </form>
       <form onSubmit={submittingTeam}>
         <h2>Preencha os dados para criar o time...</h2>
-        <TextField value={teamName} mandatory label='Nome do Time' onChange={teamName => setTeamName(teamName)} 
+        <Field type='text' value={teamName} mandatory label='Nome do Time' onChange={teamName => setTeamName(teamName)} 
           placeholder='Digite o nome do time...'/>
-        <Color value={teamColor} label='Cor do Time' onChange={teamColor => setTeamColor(teamColor)}/>
+        <Field type='color' value={teamColor} label='Cor do Time' onChange={teamColor => setTeamColor(teamColor)}/>  
         <Button>Criar time</Button>
       </form>
     </div>

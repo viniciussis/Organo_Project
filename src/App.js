@@ -36,10 +36,6 @@ function App() {
     )
   }
 
-  function favoriteMember(id) {
-    
-  }
-
   return (
     <div className="App">
       <Banner/>
@@ -52,8 +48,7 @@ function App() {
       {teams.map(team => 
         <Team 
           onChanging={changingColor}
-          members={members.filter(member => member.team === team.name)} 
-          key={team.id}
+          members={members.filter(member => member.team === team.name)}
           id={team.id}
           name={team.name} 
           color={team.color} 

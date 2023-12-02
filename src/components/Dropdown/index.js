@@ -1,17 +1,17 @@
 import './Dropdown.css'
 
-const Dropdown = (props) => {
+const Dropdown = ({ value, mandatory, onChange, label, itens }) => {
 
   const changing = (event) => {
-    props.onChange(event.target.value)
+    onChange(event.target.value)
   }
 
   return (
     <div className='dropdown'>
-      <label htmlFor={props.label} >{props.label}</label>
-      <select value={props.value} id={props.label} required={props.mandatory} onChange={changing}>
+      <label htmlFor={label} >{label}</label>
+      <select value={value} id={label} required={mandatory} onChange={changing}>
         <option disabled style={{display:'none'}} ></option>
-        {props.itens.map(item => <option key={item}>{item}</option>)}
+        {itens.map(item => <option key={item}>{item}</option>)}
       </select>
     </div>
   )
