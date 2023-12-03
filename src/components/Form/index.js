@@ -12,6 +12,7 @@ const Form = ({onSubmittingCard, onSubmittingTeam, teams}) => {
   const [team, setTeam] = useState('')
   const [teamName, setTeamName] = useState('')
   const [teamColor, setTeamColor] = useState('#FFFFFF')
+  const [response, setResponse] = useState('')
 
   const submittingCard = (event) => {
     event.preventDefault()
@@ -24,8 +25,18 @@ const Form = ({onSubmittingCard, onSubmittingTeam, teams}) => {
 
   const submittingTeam = (event) => {
     event.preventDefault()
-    onSubmittingTeam({name: teamName, color: teamColor})
-    setTeamName('')
+
+    const teamExist = teams.some(team => team === teamName)
+
+    if(teamExist){
+      setResponse('AVISO: Nome existente, por favor, escolha outro nome!!')
+      setTeamName('')
+    }
+    else {      
+      onSubmittingTeam({name: teamName, color: teamColor})
+      setTeamName('')  
+      setResponse('')
+    }
   }
 
   return (
@@ -48,6 +59,7 @@ const Form = ({onSubmittingCard, onSubmittingTeam, teams}) => {
           placeholder='Digite o nome do time...'/>
         <Field type='color' value={teamColor} label='Cor do Time' onChange={teamColor => setTeamColor(teamColor)}/>  
         <Button>Criar time</Button>
+        <h3>{response}</h3>
       </form>
     </div>
   )

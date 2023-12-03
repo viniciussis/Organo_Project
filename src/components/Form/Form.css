@@ -16,7 +16,15 @@
 
 .forms form h2 {
   font-size: 48px;
-  font-family: 'Prata';
+  font-family: 'Prata', sans-serif;
   font-weight: normal;
 }
 
+.forms form h3 {
+  flex: 1;
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: 'Prata', sans-serif;
+  border-radius: 15px;
+  padding: 12px;
+}

@@ -16,7 +16,7 @@ function App() {
     setMember([...members, member])
   }
 
-  const submittingTeam = (newTeam) => {
+  const submittingTeam = (newTeam) => {    
     newTeam = {...newTeam, id:uuidv4()}
     setTeams([...teams, newTeam])
   }
