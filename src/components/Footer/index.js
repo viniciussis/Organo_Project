@@ -24,7 +24,7 @@ const Footer = () => {
         <img src='../images/logo.png' alt="organo" />
       </section>
       <section>
-        <h5>Desenvolvido por Vinícius Silva Santos.</h5>
+        <h5>Copyright | Projeto desenvolvido por Vinícius Silva Santos | 2023</h5>
       </section>
     </footer>
   )
